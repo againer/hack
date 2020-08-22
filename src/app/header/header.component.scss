@@ -6,6 +6,11 @@
   color: #828282;
 }
 
+b.outfit {
+  padding-right: 10px;
+  font-size: 18px;
+}
+
 a:visited {
   color: #828282;
   text-decoration: none;
@@ -14,4 +19,19 @@ a:visited {
 a:link {
   color: #000000;
   text-decoration: none;
+}
+
+table.header {
+  padding: 2px;
+}
+
+td.logo {
+  width: 18px;
+  padding-right: 4px;
+  padding-top: 2px;
+}
+
+td.nav {
+  line-height: 12pt;
+  height: 10px;
 }
