@@ -10,6 +10,7 @@ import { Story } from '../story';
 })
 export class StoryItemComponent implements OnInit {
   @Input() story: Story;
+  @Input() index: number;
 
   // this.domain should be the hostname (www.domain.com) without `www`.
   domain: string = '';
