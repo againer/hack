@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AllComponent } from './all/all.component';
-import { BestComponent } from './best/best.component';
-import { TopComponent } from './top/top.component';
+import { StoriesComponent } from './stories/stories.component';
 
 const routes: Routes = [
   // all - latest stories.
-  { path: 'all', component: AllComponent },
+  { path: 'all', component: StoriesComponent },
   // best - best stories.
-  { path: 'best', component: BestComponent },
+  { path: 'best', component: StoriesComponent },
   // top - top stories.
-  { path: 'top', component: TopComponent },
+  { path: 'top', component: StoriesComponent },
   // default to latest? stories.
-  { path: '', component: AllComponent },
+  { path: '', component: StoriesComponent },
 ];
 
 @NgModule({
