@@ -1,7 +1,10 @@
 <div>
   <app-header></app-header>
   <div class="stories">
-    <app-story-item *ngFor="let story of stories" [story]="story">
-    </app-story-item>
+    <div class="story-items">
+      <app-story-item *ngFor="let story of stories" [story]="story">
+      </app-story-item>
+    </div>
+    <div class="more">More</div>
   </div>
 </div>

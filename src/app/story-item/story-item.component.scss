@@ -1,18 +1,34 @@
 .story-item {
   display: flex;
   align-items: baseline;
-  font-family: Verdana, Geneva, sans-serif;
   font-size: 10pt;
   padding-top: 5pt;
   padding-bottom: 5pt;
 }
 
 .upboat {
-  padding-right: 10px;
-  padding-left: 5px;
   color: #828282;
+  width: 35px;
 }
 
-.excerpt > .title {
+.excerpt > .title, .excerpt > .title > a {
   color: #000000;
+  text-decoration: none;
+}
+
+.comhead, .comhead > a {
+  font-size: 8pt;
+  color: #828282;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.stats {
+  padding-top: 3px;
+  font-size: 7pt;
+  color: #828282;
 }

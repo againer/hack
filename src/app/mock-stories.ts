@@ -55,6 +55,6 @@ export const STORIES: Story[] = [
     time: 1175714200,
     title: 'My YC app: Dropbox - Throw away your USB drive',
     type: 'story',
-    url: 'http://www.getdropbox.com/u/2/screencast.html',
+    url: 'http://getdropbox.com/u/2/screencast.html',
   },
 ];

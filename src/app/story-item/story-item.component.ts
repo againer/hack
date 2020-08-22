@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import moment from 'moment';
 
 import { Story } from '../story';
 
@@ -10,7 +11,15 @@ import { Story } from '../story';
 export class StoryItemComponent implements OnInit {
   @Input() story: Story;
 
+  // this.domain should be the hostname (www.domain.com) without `www`.
+  domain: string = '';
+  timeAgo: string = '';
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const [start, middle, end] = new URL(this.story.url).hostname.split('.');
+    this.domain = end ? `${middle}.${end}` : `${start}.${middle}`;
+    this.timeAgo = moment.unix(this.story.time).fromNow();
+  }
 }

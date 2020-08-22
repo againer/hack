@@ -2,4 +2,13 @@
   background-color: #f6f6ef;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  border-bottom: 2px solid #ff6600;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.more {
+  padding-left: 35px;
+  padding-bottom: 10px;
 }

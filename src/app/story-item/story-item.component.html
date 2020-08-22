@@ -1,11 +1,15 @@
 <div class="story-item">
-    <div class="upboat">
-      5. <img src="assets/img/upboat.png" alt="upboat arrow">
+  <div class="upboat">
+    5. <img src="assets/img/upboat.png" alt="upboat arrow">
+  </div>
+  <div class="excerpt">
+    <div class="title">
+      <a href={{story.url}}>{{story.title}} </a>
+      <span class="comhead">(<a href={{story.url}}>{{domain}}</a>)</span>
     </div>
-    <div class="excerpt">
-      <div class="title">
-        {{story.title}}
-      </div>
+    <div class="stats">
+      {{story.score}} points by {{story.by}}
+      {{timeAgo}} | {{story.kids.length}} comments
     </div>
-
+  </div>
 </div>
