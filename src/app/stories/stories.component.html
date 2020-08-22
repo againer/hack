@@ -1,1 +1,7 @@
-<p>stories works!</p>
+<div>
+  <app-header></app-header>
+  <div class="stories">
+    <app-story-item *ngFor="let story of stories" [story]="story">
+    </app-story-item>
+  </div>
+</div>
