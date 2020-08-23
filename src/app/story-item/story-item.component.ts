@@ -27,7 +27,7 @@ export class StoryItemComponent implements OnInit {
           ? new URL(story.url).hostname.split('.')
           : ['test', 'test', 'test'];
 
-        // decorate story with domain and timeAgo for display purposes.
+        // Decorate `story` with `domain` and `timeAgo` for display purposes.
         this.story = {
           ...story,
           domain: end ? `${middle}.${end}` : `${start}.${middle}`,
