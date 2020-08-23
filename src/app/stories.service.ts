@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+
+import { map, mergeMap, flatMap } from 'rxjs/operators';
 
 import { Story } from './story';
 import { STORIES } from './mock-stories';
@@ -8,16 +11,31 @@ import { STORIES } from './mock-stories';
   providedIn: 'root',
 })
 export class StoriesService {
-  constructor() {}
-  // getStories(): Observable<Story[]> {
-  //   return of(STORIES);
-  // }
-  getStories(offset: number, storyType: string = 'all'): Story[] {
+  baseUrl: string = 'https://hacker-news.firebaseio.com/v0';
+
+  constructor(private http: HttpClient) {}
+
+  getStory(storyId: any): Observable<any> {
+    const url = `${this.baseUrl}/item/${storyId}.json`;
+    return this.http.get(url);
+  }
+
+  getStories(storyType: string = 'all'): Observable<any> {
+    const url: string =
+      `${this.baseUrl}/${
+        {
+          all: 'topstories',
+          best: 'beststories',
+          top: 'topstories',
+        }[storyType]
+      }.json` || `${this.baseUrl}/newstories.json`;
+
+    return this.http.get(url);
+
     // grab topstories, newstories, beststories
     // grab optional page number
     // get a list of integer ids from HN.
     // grab only subset of integer ids
     // grab story for each integer id (should be ~30).
-    return STORIES;
   }
 }

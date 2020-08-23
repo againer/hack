@@ -8,4 +8,7 @@ export interface Story {
   title: string;
   type: string;
   url: string;
+  // optional fields used for decoration purposes.
+  domain?: string;
+  timeAgo?: string;
 }

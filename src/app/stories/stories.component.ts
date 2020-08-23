@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Story } from '../story';
 import { StoriesService } from '../stories.service';
 
 @Component({
@@ -9,15 +8,14 @@ import { StoriesService } from '../stories.service';
   styleUrls: ['./stories.component.scss'],
 })
 export class StoriesComponent implements OnInit {
-  stories: Story[];
+  storyIds: number[];
 
   constructor(private storiesService: StoriesService) {}
 
+  // TODO(againer): Add pagination and better slicing.
   ngOnInit(): void {
-    this.getStories();
-  }
-
-  getStories(): void {
-    this.stories = this.storiesService.getStories(1);
+    this.storiesService
+      .getStories()
+      .subscribe(storyIds => (this.storyIds = storyIds.slice(0, 10)));
   }
 }

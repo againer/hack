@@ -2,7 +2,7 @@
   <app-header></app-header>
   <div class="stories">
     <div class="story-items">
-      <app-story-item *ngFor="let story of stories; let i = index" [story]="story" [index]="i">
+      <app-story-item *ngFor="let storyId of storyIds; let i = index" [storyId]="storyId" [index]="i">
       </app-story-item>
     </div>
     <div class="more">More</div>

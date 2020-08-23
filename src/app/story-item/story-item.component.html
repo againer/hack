@@ -1,15 +1,24 @@
-<div class="story-item">
-  <div class="upboat">
-    {{index + 1}}. <img src="assets/img/upboat.png" alt="upboat arrow">
-  </div>
-  <div class="excerpt">
-    <div class="title">
-      <a href={{story.url}}>{{story.title}} </a>
-      <span class="comhead">(<a href={{story.url}}>{{domain}}</a>)</span>
+<div *ngIf="!story">
+  Loading...
+</div>
+
+<div *ngIf="story">
+  <div class="story-item">
+    <div class="upboat">
+      <span>{{index + 1}}.</span>
+      <span>
+        <img src="assets/img/upboat.png" alt="upboat arrow">
+      </span>
     </div>
-    <div class="stats">
-      {{story.score}} points by {{story.by}}
-      {{timeAgo}} | {{story.kids.length}} comments
+    <div class="excerpt">
+      <div class="title">
+        <a href={{story.url}}>{{story.title}} </a>
+        <span class="comhead">(<a href={{story.url}}>{{story.domain}}</a>)</span>
+        </div>
+        <div class="stats">
+        {{story.score}} points by {{story.by}}
+        {{story.timeAgo}} | {{story.kids ? story.kids.length : 0}} comments
+      </div>
     </div>
   </div>
 </div>
