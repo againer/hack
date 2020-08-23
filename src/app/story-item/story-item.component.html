@@ -5,17 +5,14 @@
 <div *ngIf="story">
   <div class="story-item">
     <div class="upboat">
-      <span *ngIf="index">{{index + 1}}.</span>
-      <span>
-        <img src="assets/img/upboat.png" alt="upboat arrow">
-      </span>
+      <span *ngIf="index !== undefined">{{index + 1}}.</span>
     </div>
     <div class="excerpt">
       <div class="title">
         <div *ngIf="story.url">
           <a href={{story.url}}>{{story.title}} </a>
           <span class="comhead">
-            (<a href={{story.url}}>{{story.domain}}</a>)
+            ({{story.domain}})
           </span>
         </div>
         <div *ngIf="!story.url">

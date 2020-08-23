@@ -2,7 +2,7 @@
   <div class="comment">
     <div class="upboat">
       <span>
-        <img src="assets/img/upboat.png" alt="upboat arrow">
+        -
       </span>
     </div>
     <div class="stats" [class.meta-collapse]="hide">
@@ -11,7 +11,7 @@
         {{story.timeAgo}}
       </span>
       <span class="hide" (click)="hide = !hide">
-        [{{hide ? '+' : '-'}}]
+        [{{hide ? 'show' : 'hide'}}]
       </span>
     </div>
   </div>
