@@ -6,6 +6,16 @@
   padding-bottom: 5pt;
 }
 
+.story-item a {
+  color: #828282;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
 .upboat {
   color: #828282;
   min-width: 45px;
@@ -15,15 +25,13 @@
   margin-right: 10px;
 }
 
-.excerpt > .title, .excerpt > .title > a {
+.excerpt .title a {
   color: #000000;
-  text-decoration: none;
 }
 
 .comhead, .comhead > a {
   font-size: 8pt;
-  color: #828282;
-  text-decoration: none;
+  color: #828282 !important;
 
   &:hover {
     text-decoration: underline;

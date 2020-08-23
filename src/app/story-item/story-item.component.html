@@ -5,19 +5,33 @@
 <div *ngIf="story">
   <div class="story-item">
     <div class="upboat">
-      <span>{{index + 1}}.</span>
+      <span *ngIf="index">{{index + 1}}.</span>
       <span>
         <img src="assets/img/upboat.png" alt="upboat arrow">
       </span>
     </div>
     <div class="excerpt">
       <div class="title">
-        <a href={{story.url}}>{{story.title}} </a>
-        <span class="comhead">(<a href={{story.url}}>{{story.domain}}</a>)</span>
+        <div *ngIf="story.url">
+          <a href={{story.url}}>{{story.title}} </a>
+          <span class="comhead">
+            (<a href={{story.url}}>{{story.domain}}</a>)
+          </span>
         </div>
-        <div class="stats">
+        <div *ngIf="!story.url">
+          <a [routerLink]="['/item']" [queryParams]="{id: story.id}">
+            {{story.title}}
+          </a>
+        </div>
+      </div>
+      <div class="stats">
         {{story.score}} points by {{story.by}}
-        {{story.timeAgo}} | {{story.kids ? story.kids.length : 0}} comments
+        <a [routerLink]="['/item']" [queryParams]="{id: story.id}">
+          {{story.timeAgo}} |
+        </a>
+        <a [routerLink]="['/item']" [queryParams]="{id: story.id}">
+          {{story.kids ? story.kids.length : 0}} comments
+        </a>
       </div>
     </div>
   </div>
