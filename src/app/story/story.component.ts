@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { filter } from 'rxjs/operators';
+import { Story } from '../story';
+import { StoriesService } from '../stories.service';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-story',
@@ -9,13 +11,17 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./story.component.scss'],
 })
 export class StoryComponent implements OnInit {
-  storyId: string;
+  story: Story;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private storiesService: StoriesService,
+  ) {}
 
   ngOnInit(): void {
-    this.route.queryParams
-      .pipe(filter(params => params.id))
-      .subscribe(params => (this.storyId = params.id));
+    const storyId = this.route.snapshot.queryParamMap.get('id');
+    this.storiesService
+      .getStory(storyId)
+      .subscribe(story => (this.story = story));
   }
 }

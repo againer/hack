@@ -8,6 +8,8 @@ import { HeaderComponent } from './header/header.component';
 import { StoriesComponent } from './stories/stories.component';
 import { StoryItemComponent } from './story-item/story-item.component';
 import { StoryComponent } from './story/story.component';
+import { CommentsComponent } from './comments/comments.component';
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { StoryComponent } from './story/story.component';
     StoriesComponent,
     StoryItemComponent,
     StoryComponent,
+    CommentsComponent,
+    CommentComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
