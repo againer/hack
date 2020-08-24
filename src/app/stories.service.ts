@@ -24,7 +24,7 @@ export class StoriesService {
     const url: string =
       `${this.baseUrl}/${
         {
-          all: 'topstories',
+          all: 'newstories',
           best: 'beststories',
           top: 'topstories',
         }[storyType]
