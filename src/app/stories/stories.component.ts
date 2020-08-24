@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 import { StoriesService } from '../stories.service';
 
@@ -9,13 +11,42 @@ import { StoriesService } from '../stories.service';
 })
 export class StoriesComponent implements OnInit {
   storyIds: number[];
+  allStoryIds: number[] = [];
+  storyType: string = 'all';
+  page: number = 1;
 
-  constructor(private storiesService: StoriesService) {}
+  constructor(
+    private storiesService: StoriesService,
+    private route: ActivatedRoute,
+    private router: Router,
+  ) {}
 
-  // TODO(againer): Add pagination and better slicing.
+  navigate(offset) {
+    this.router.navigate([`/${this.storyType}`], {
+      queryParams: { p: this.page + offset },
+    });
+  }
+
   ngOnInit(): void {
-    this.storiesService
-      .getStories()
-      .subscribe(storyIds => (this.storyIds = storyIds.slice(0, 10)));
+    this.storyType = this.route.snapshot.url.length
+      ? this.route.snapshot.url[0].path
+      : 'all';
+
+    this.route.queryParams.subscribe(queryParam => {
+      const queryPage = parseInt(queryParam.p || '1');
+
+      this.storiesService.getStories(this.storyType).subscribe(storyIds => {
+        this.page = queryPage >= 0 ? queryPage : 1;
+        if (this.allStoryIds.length) {
+          this.storyIds = this.allStoryIds.slice(
+            (this.page - 1) * 30,
+            this.page * 30,
+          );
+        } else {
+          this.allStoryIds = storyIds;
+          this.storyIds = storyIds.slice((this.page - 1) * 30, this.page * 30);
+        }
+      });
+    });
   }
 }

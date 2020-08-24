@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Story } from '../story';
 import { StoriesService } from '../stories.service';
-import { filter, map } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-story',

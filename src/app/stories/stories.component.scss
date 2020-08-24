@@ -1,6 +1,15 @@
-.more {
-  padding-left: 55px;
+.paging {
+  display: flex;
+  max-width: 75px;
+  padding-left: 30px;
   padding-bottom: 10px;
   font-size: 12px;
   padding-top: 10px;
+  justify-content: space-between;
+
+  & a {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }

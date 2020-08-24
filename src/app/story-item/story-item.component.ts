@@ -12,6 +12,7 @@ import { StoriesService } from '../stories.service';
 export class StoryItemComponent implements OnInit {
   @Input() storyId: number;
   @Input() index: number;
+  @Input() page: number;
 
   story: Story;
 

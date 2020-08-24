@@ -31,11 +31,5 @@ export class StoriesService {
       }.json` || `${this.baseUrl}/newstories.json`;
 
     return this.http.get(url);
-
-    // grab topstories, newstories, beststories
-    // grab optional page number
-    // get a list of integer ids from HN.
-    // grab only subset of integer ids
-    // grab story for each integer id (should be ~30).
   }
 }
