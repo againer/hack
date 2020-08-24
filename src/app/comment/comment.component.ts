@@ -20,6 +20,7 @@ export class CommentComponent implements OnInit {
   ngOnInit(): void {
     this.storiesService.getStory(this.commentId).subscribe(
       story =>
+        // Decorate `story` with `timeAgo` for display purposes.
         (this.story = {
           ...story,
           timeAgo: moment.unix(story.time).fromNow(),
