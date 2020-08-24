@@ -44,13 +44,12 @@ export class StoryItemComponent implements OnInit {
     if (this.story) {
       this.story = this.decorateStory(this.story);
     } else {
+      this.storiesService
+        .getStory(this.storyId)
+        .subscribe(
+          story => (this.story = this.decorateStory(story)),
+          error => console.log(`error snagging story ${this.storyId}`),
+        );
     }
-
-    this.storiesService
-      .getStory(this.storyId)
-      .subscribe(
-        story => (this.story = this.decorateStory(story)),
-        error => console.log(`error snagging story ${this.storyId}`),
-      );
   }
 }
