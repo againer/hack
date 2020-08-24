@@ -2,8 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { map, mergeMap, flatMap } from 'rxjs/operators';
-
 import { Story } from './story';
 import { STORIES } from './mock-stories';
 
@@ -11,6 +9,7 @@ import { STORIES } from './mock-stories';
   providedIn: 'root',
 })
 export class StoriesService {
+  // This should be in some config somewhere.
   baseUrl = 'https://hacker-news.firebaseio.com/v0';
 
   constructor(private http: HttpClient) {}
