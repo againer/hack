@@ -34,3 +34,10 @@
     </div>
   </div>
 </div>
+<div *ngIf="!story">
+  <div class="story-item">
+    <div class="upboat">
+      <span *ngIf="index !== undefined">{{index + 1}}.</span>
+    </div>
+  </div>
+</div>
