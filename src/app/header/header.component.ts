@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 import { Header } from '../header';
 
@@ -12,7 +14,17 @@ export class HeaderComponent implements OnInit {
     outfit: 'Moxion News',
   };
 
-  constructor() {}
+  storyType = '/top';
 
-  ngOnInit(): void {}
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(
+        event =>
+          // Kind of brittle, but workable for now.
+          (this.storyType = this.router.url.replace('/', '')),
+      );
+  }
 }

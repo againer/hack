@@ -7,6 +7,10 @@ nav {
   font-family: Verdana, Geneva, sans-serif;
 }
 
+nav > a.active {
+  color: white;
+}
+
 nav > a.logo {
   padding-right: 5px;
   padding-left: 2px;
