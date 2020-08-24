@@ -4,7 +4,11 @@ This project is a bare bones version of Hacker News that uses HN's firebase base
 
 The project is more or less just an angular app that was bootstrapped with [Angular CLI](https://github.com/angular/angular-cli) version `10.0.7`. 
 
-## Development server
+## Getting started
+
+This project assumes you are running node `v12.16.2` (`nvm use v12.16.2`) and have `@angular/cli` installed globally (`npm install -g @angular/cli`).
+
+### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
