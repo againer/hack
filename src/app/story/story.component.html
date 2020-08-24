@@ -4,7 +4,7 @@
 
 <div *ngIf="story">
   <div class="story">
-    <app-story-item [storyId]="story.id"></app-story-item>
+    <app-story-item [story]="story"></app-story-item>
     <div *ngIf="story.text" class="text">
       <span [innerHTML]="story.text"></span>
     </div>

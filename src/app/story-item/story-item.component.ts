@@ -11,15 +11,12 @@ import { StoriesService } from '../stories.service';
 })
 export class StoryItemComponent implements OnInit {
   @Input() storyId: number;
+  @Input() story: Story;
   @Input() index: number;
   @Input() page: number;
 
-  story: Story;
-
   constructor(private storiesService: StoriesService) {}
 
-  // It is possible for stories to exclude an external url.
-  // For that case, we need to point to MN's story detail.
   createDomain(url): string {
     if (!url) {
       return;
@@ -29,16 +26,31 @@ export class StoryItemComponent implements OnInit {
     return end ? `${middle}.${end}` : `${start}.${middle}`;
   }
 
+  // Decorate `story` with `domain` and `timeAgo` for display purposes.
+  decorateStory(story: Story) {
+    return {
+      ...story,
+      domain: this.createDomain(story.url),
+      timeAgo: moment.unix(story.time).fromNow(),
+    };
+  }
+
   ngOnInit(): void {
-    this.storiesService.getStory(this.storyId).subscribe(
-      story =>
-        // Decorate `story` with `domain` and `timeAgo` for display purposes.
-        (this.story = {
-          ...story,
-          domain: this.createDomain(story.url),
-          timeAgo: moment.unix(story.time).fromNow(),
-        }),
-      error => console.log(`error snagging story ${this.storyId}`),
-    );
+    // If we already have the story in context,
+    // don't fetch it again-simply decorate.
+    // Otherwise, fetch the story and decorate.
+    // This way, we can avoid double fetching if the parent
+    // already has the story in hand.
+    if (this.story) {
+      this.story = this.decorateStory(this.story);
+    } else {
+    }
+
+    this.storiesService
+      .getStory(this.storyId)
+      .subscribe(
+        story => (this.story = this.decorateStory(story)),
+        error => console.log(`error snagging story ${this.storyId}`),
+      );
   }
 }
