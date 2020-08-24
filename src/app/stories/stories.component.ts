@@ -11,9 +11,9 @@ import { StoriesService } from '../stories.service';
 })
 export class StoriesComponent implements OnInit {
   storyIds: number[];
-  allStoryIds: number[] = [];
-  storyType: string = 'top';
-  page: number = 1;
+  allStoryIds = [];
+  storyType = 'top';
+  page = 1;
 
   constructor(
     private storiesService: StoriesService,
@@ -21,7 +21,7 @@ export class StoriesComponent implements OnInit {
     private router: Router,
   ) {}
 
-  navigate(offset) {
+  navigate(offset): void {
     this.router.navigate([`/${this.storyType}`], {
       queryParams: { p: this.page + offset },
     });
@@ -33,7 +33,7 @@ export class StoriesComponent implements OnInit {
       : 'all';
 
     this.route.queryParams.subscribe(queryParam => {
-      const queryPage = parseInt(queryParam.p || '1');
+      const queryPage = Number(queryParam.p || '1');
 
       this.storiesService.getStories(this.storyType).subscribe(storyIds => {
         this.page = queryPage >= 0 ? queryPage : 1;

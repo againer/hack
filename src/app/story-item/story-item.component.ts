@@ -20,7 +20,7 @@ export class StoryItemComponent implements OnInit {
 
   // It is possible for stories to exclude an external url.
   // For that case, we need to point to MN's story detail.
-  createDomain(url) {
+  createDomain(url): string {
     if (!url) {
       return;
     }

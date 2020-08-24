@@ -11,7 +11,7 @@ import { STORIES } from './mock-stories';
   providedIn: 'root',
 })
 export class StoriesService {
-  baseUrl: string = 'https://hacker-news.firebaseio.com/v0';
+  baseUrl = 'https://hacker-news.firebaseio.com/v0';
 
   constructor(private http: HttpClient) {}
 
