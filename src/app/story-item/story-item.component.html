@@ -24,9 +24,7 @@
         </a>
         <a [routerLink]="['/item']" [queryParams]="{id: story.id}">
           <span *ngIf="story.kids && story.kids.length">
-            {{story.kids.length}}
-            <span *ngIf="story.kids.length === 1">comment</span>
-            <span *ngIf="story.kids.length > 1">comments</span>
+            <span>view comments</span>
           </span>
           <span *ngIf="!story.kids">discuss</span>
         </a>
