@@ -12,7 +12,7 @@ import { StoriesService } from '../stories.service';
 export class StoriesComponent implements OnInit {
   storyIds: number[];
   allStoryIds: number[] = [];
-  storyType: string = 'all';
+  storyType: string = 'top';
   page: number = 1;
 
   constructor(
