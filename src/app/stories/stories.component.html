@@ -1,0 +1,11 @@
+<div class="story-items">
+  <app-story-item
+      *ngFor="let storyId of storyIds; let i = index"
+      [storyId]="storyId"
+      [index]="(page - 1) * 30 + i">
+  </app-story-item>
+</div>
+<div class="paging">
+  <div (click)="navigate(-1)" *ngIf="page > 1">Prev</div>
+  <div (click)="navigate(1)" *ngIf="storyIds && storyIds.length === 30">More</div>
+</div>

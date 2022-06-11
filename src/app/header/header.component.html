@@ -1,0 +1,25 @@
+<nav>
+  <a routerLink="/" class="logo">
+    <img src="assets/img/logo.png" alt="main moxion logo">
+  </a>
+
+  <a class="outfit" routerLink="/">{{header.outfit}} </a>
+  <a
+      [ngClass]="{'active': storyType === 'all'}"
+      class="nav-item"
+      routerLink="/all">
+      all
+  </a> |
+  <a
+      [ngClass]="{'active': storyType === 'top'}"
+      class="nav-item"
+      routerLink="/top">
+      top
+  </a> |
+  <a
+      [ngClass]="{'active': storyType === 'best'}"
+      class="nav-item"
+      routerLink="/best">
+      best
+  </a>
+</nav>

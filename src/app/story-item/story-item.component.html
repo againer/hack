@@ -1,0 +1,41 @@
+<div *ngIf="story">
+  <div class="story-item">
+    <div class="upboat">
+      <span *ngIf="index !== undefined">{{index + 1}}.</span>
+    </div>
+    <div class="excerpt">
+      <div class="title">
+        <div *ngIf="story.url">
+          <a href={{story.url}}>{{story.title}} </a>
+          <span class="comhead">
+            ({{story.domain}})
+          </span>
+        </div>
+        <div *ngIf="!story.url">
+          <a [routerLink]="['/item']" [queryParams]="{id: story.id}">
+            {{story.title}}
+          </a>
+        </div>
+      </div>
+      <div class="stats">
+        {{story.score}} points by {{story.by}}
+        <a [routerLink]="['/item']" [queryParams]="{id: story.id}">
+          {{story.timeAgo}} |
+        </a>
+        <a [routerLink]="['/item']" [queryParams]="{id: story.id}">
+          <span *ngIf="story.kids && story.kids.length">
+            <span>view comments</span>
+          </span>
+          <span *ngIf="!story.kids">discuss</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!story">
+  <div class="story-item">
+    <div class="upboat">
+      <span *ngIf="index !== undefined">{{index + 1}}.</span>
+    </div>
+  </div>
+</div>

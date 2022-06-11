@@ -1,0 +1,42 @@
+.story-item {
+  display: flex;
+  align-items: baseline;
+  font-size: 10pt;
+  padding-top: 5pt;
+  padding-bottom: 5pt;
+  min-height: 40px;
+}
+
+.story-item a {
+  color: #828282;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.upboat {
+  color: #828282;
+  min-width: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-right: 10px;
+}
+
+.excerpt .title a {
+  color: #000000;
+}
+
+.comhead {
+  font-size: 8pt;
+  color: #828282 !important;
+}
+
+.stats {
+  padding-top: 3px;
+  font-size: 7pt;
+  color: #828282;
+}

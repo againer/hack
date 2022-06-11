@@ -1,0 +1,7 @@
+<div *ngIf="story.kids && story.kids.length">
+  <ul class="comments">
+    <li *ngFor="let kid of story.kids">
+      <app-comment [commentId]="kid"></app-comment>
+    </li>
+  </ul>
+</div>

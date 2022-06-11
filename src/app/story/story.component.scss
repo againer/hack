@@ -1,0 +1,16 @@
+.text {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10pt;
+  color: #828282;
+  padding-left: 40px;
+}
+
+.story .text a {
+  text-decoration: none;
+  color: #828282;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

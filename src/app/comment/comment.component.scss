@@ -1,0 +1,46 @@
+.comments ul {
+  margin-left: 20px;
+}
+
+.upboat {
+  min-width: 20px;
+}
+
+.comment {
+  display: flex;
+}
+
+.stats {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 8pt;
+  margin-top: 5px;
+  color: #828282;
+}
+
+a {
+  text-decoration: none;
+  color: #828282;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.text {
+  font-size: 12px;
+  padding-left: 20px;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.hide:hover {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: list-item;
+}
